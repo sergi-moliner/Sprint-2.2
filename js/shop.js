@@ -81,7 +81,7 @@ function buy(id) {
     const productToAdd = products.find(product => product.id === id);
 
     if (productToAdd) {
-        const productIndex = cart.findIndex(productToAdd => productToAdd.id == id)
+        const productIndex = cart.findIndex(productToAdd => productToAdd.id == id);
         productIndex == -1 ? cart.push({ ...productToAdd, quantity: 1}) : cart[productIndex].quantity += 1;
     } else {
         console.error('No se encuentra el producto');
@@ -95,32 +95,41 @@ function buy(id) {
             <th scope="row">${product.name}</th>
             <td>$${product.price}</td>
             <td>${product.quantity}</td>
-            <td>$${product.price * product.quantity}</td>
+            <td>$${applyPromotionsCart(product).toFixed(2)}</td>
             `;
 
         cartList.appendChild(newRow);
     });
-    calculateTotal()
+    calculateTotal();
 }
 
 // Exercise 2
 function cleanCart() {
     cartList.innerHTML ='';
+    cart = [];
     total = 0;
     totalPriceElement.textContent = total;
 }
 
 // Exercise 3
 function calculateTotal() {
-    total = cart.reduce((accumulator, product) => accumulator + (product.price * product.quantity), 0);;
-    totalPriceElement.textContent = `${total.toFixed(2)}`;
+    total = cart.reduce((accumulator, product) => accumulator + (applyPromotionsCart(product)), 0);;
+    totalPriceElement.textContent = total.toFixed(2);
 }
 
 // Exercise 4
-function applyPromotionsCart() {
-    // Apply promotions to each item in the array "cart"
+// Apply promotions to each item in the array "cart"
+function applyPromotionsCart(product) {
+    switch (product.id){
+        case 1: 
+            return (product.quantity >= 3) ? product.price * product.quantity * 0.8 : product.price * product.quantity;
+        case 3: 
+            return (product.quantity >= 10) ? product.price * product.quantity * 0.7 : product.price * product.quantity;
+        default:
+            return product.price * product.quantity;
+    }
 }
-
+   
 // Exercise 5
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
