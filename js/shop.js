@@ -2,7 +2,7 @@
 var products = [
     {
         id: 1,
-        name: 'cooking oil',
+        name: 'Cooking oil',
         price: 10.5,
         type: 'grocery',
         offer: {
@@ -70,8 +70,10 @@ var products = [
 // ** Don't hesitate to seek help from your peers or your mentor if you still struggle with debugging.
 
 var cart = [];
-
 var total = 0;
+
+const cartList = document.getElementById('cart_list');
+const totalPriceElement = document.getElementById('total_price');
 
 // Exercise 1
 function buy(id) {
@@ -82,20 +84,36 @@ function buy(id) {
         const productIndex = cart.findIndex(productToAdd => productToAdd.id == id)
         productIndex == -1 ? cart.push({ ...productToAdd, quantity: 1}) : cart[productIndex].quantity += 1;
     } else {
-        console.error('Noesta');
+        console.error('No se encuentra el producto');
     }
 
-    console.log(cart)
+    cartList.innerHTML = '';
+
+    cart.forEach(product => {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <th scope="row">${product.name}</th>
+            <td>$${product.price}</td>
+            <td>${product.quantity}</td>
+            <td>$${product.price * product.quantity}</td>
+            `;
+
+        cartList.appendChild(newRow);
+    });
+    calculateTotal()
 }
 
 // Exercise 2
 function cleanCart() {
-
+    cartList.innerHTML ='';
+    total = 0;
+    totalPriceElement.textContent = total;
 }
 
 // Exercise 3
 function calculateTotal() {
-    // Calculate total price of the cart using the "cartList" array
+    total = cart.reduce((accumulator, product) => accumulator + (product.price * product.quantity), 0);;
+    totalPriceElement.textContent = `${total.toFixed(2)}`;
 }
 
 // Exercise 4
