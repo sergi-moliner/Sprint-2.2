@@ -1,5 +1,3 @@
-// Exercise 6
-
 var error = 0;
 
 var fName = document.getElementById("fName");
@@ -48,7 +46,7 @@ function isValidEmail(email) {
 }
 
 function validateField(field, errorElement, ValidationFunction){
-	if(!ValidationFunction(field.value) || isValidLength(field)){
+	if(!ValidationFunction(field.value) || !isValidLength(field.value)){
 		showError(field, errorElement);
 	}else{
 		hideError(field, errorElement);
@@ -72,7 +70,7 @@ function validate() {
 	}
 }
 
-document.getElementById("form").addEventListener('submit', function(event) {
+addEventListener('submit', function(event) {
 	if (error > 0) {
 		event.preventDefault();
 	}

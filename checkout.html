@@ -16,7 +16,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 
 <body>
@@ -151,16 +150,26 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<div>
-						<ul class="list">
-
-						</ul>
-						<div>
-							<h3 class="text-center bill px-5">Select Something</h3>
-						</div>
-						<div class="text-center">
-							<a href="checkout.html" class="btn btn-primary m-3">Checkout</a>
-						</div>
+					<h3 class="text-center bill px-5">Shopping Cart</h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Product</th>
+								<th scope="col">Price</th>
+								<th scope="col">Qty.</th>
+								<th scope="col">Total <small>(with discount)</small></th>
+								<th scope="col">Actions</th>
+							</tr>
+						</thead>
+						<tbody id="cart_list">
+						</tbody>
+					</table>
+					<div class="text-center fs-3">
+						Total: $<span id="total_price">0</span>
+					</div>
+					<div class="text-center">
+						<a href="index.html" class="btn btn-primary m-3">Buy more</a>
+						<a href="javascript:void(0)" onclick="cleanCart()" class="btn btn-primary m-3">Clean Cart</a>
 					</div>
 				</div>
 			</div>
