@@ -74,17 +74,17 @@ var total = 0;
 
 const cartList = document.getElementById('cart_list');
 const totalPriceElement = document.getElementById('total_price');
+const countProduct = document.getElementById('count_product');
 
 // Exercise 1
 function buy(id) {
-
     const productToAdd = products.find(product => product.id === id);
 
     if (productToAdd) {
         const productIndex = cart.findIndex(productToAdd => productToAdd.id == id);
         productIndex == -1 ? cart.push({ ...productToAdd, quantity: 1}) : cart[productIndex].quantity += 1;
-    } else {
-        console.error('No se encuentra el producto');
+        count_product.innerHTML = +countProduct.innerHTML + 1;
+  
     }
 }
 
@@ -94,6 +94,7 @@ function cleanCart() {
     cart = [];
     total = 0;
     totalPriceElement.textContent = total;
+    count_product.innerHTML = 0;
 }
 
 // Exercise 3
@@ -103,7 +104,6 @@ function calculateTotal() {
 }
 
 // Exercise 4
-// Apply promotions to each item in the array "cart"
 function applyPromotionsCart(product) {
     switch (product.id){
         case 1: 
