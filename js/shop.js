@@ -126,6 +126,7 @@ function printCart() {
             <td>$${product.price}</td>
             <td>${product.quantity}</td>
             <td>$${applyPromotionsCart(product).toFixed(2)}</td>
+            <td><button onclick="removeFromCart(${product.id})" class="btn btn-danger"><i class="fas fa-times"></i></button></td>
             `;
         cartList.appendChild(newRow);
     });
@@ -136,7 +137,13 @@ function printCart() {
 
 // Exercise 7
 function removeFromCart(id) {
+    const productIndex = cart.findIndex(product => product.id === id);
 
+    if (productIndex !== -1) {
+        cart[productIndex].quantity === 1 ? cart.splice(productIndex, 1) : cart[productIndex].quantity -= 1;
+        count_product.innerHTML = +count_product.innerHTML - 1;
+    }
+    printCart();
 }
 
 function open_modal() {
