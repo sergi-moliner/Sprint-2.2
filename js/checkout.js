@@ -64,9 +64,9 @@ function validate() {
 	validateField(fPhone, errorPhone, isNum);
 
 	if(error>0){
-		alert("Error");
+		$('#modalError').modal('show');
 	}else{
-		alert("OK");
+		$('#modalSucces').modal('show');
 	}
 }
 

@@ -69,7 +69,7 @@ function printCart() {
             <td>$${product.price}</td>
             <td>${product.quantity}</td>
             <td>$${applyPromotionsCart(product).toFixed(2)}</td>
-            <td><button onclick="removeFromCart(${product.id})" class="btn btn-danger"><i class="fas fa-times"></i></button></td>
+            <td><button onclick="removeFromCart(${product.id})" class="btn btn-ligth border"><i class="fas fa-minus"></i></button></td>
             `;
         cartList.appendChild(newRow);
     });
