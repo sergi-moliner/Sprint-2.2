@@ -29,14 +29,14 @@ git clone https://github.com/sergi-moliner/Sprint-2.2/
 
 ## Files and Directories
 
-index.html: Main shopping page where users can browse and add products to their cart.
-checkout.html: Checkout page where users review their cart and complete their purchase.
-css/: Directory containing CSS stylesheets for styling the HTML pages.
-images/: Directory for images used in the project.
-js/: Directory for JavaScript files.
-  shop.js: Contains logic for managing the shopping cart and products, including fetching product data from the products.json file.
-  checkout.js: Implements logic for the checkout process and promotion application.
-  products.json: JSON file containing product data, including name, price, and other relevant information. This file is used by grocery.js to populate the product catalog.
+-index.html: Main shopping page where users can browse and add products to their cart.
+-checkout.html: Checkout page where users review their cart and complete their purchase.
+-css/: Directory containing CSS stylesheets for styling the HTML pages.
+-images/: Directory for images used in the project.
+-js/: Directory for JavaScript files.
+  -shop.js: Contains logic for managing the shopping cart and products, including fetching product data from the products.json file.
+  -checkout.js: Implements logic for the checkout process and promotion application.
+  -products.json: JSON file containing product data, including name, price, and other relevant information. This file is used by grocery.js to populate the product catalog.
 
 <br>
 
