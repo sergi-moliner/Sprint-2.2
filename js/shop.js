@@ -1,4 +1,4 @@
-fetch('/starter-code-frontend-shop/js/products.json')
+fetch('js/products.json')
     .then(response => response.json())
     .then(data => {
         products = data;
