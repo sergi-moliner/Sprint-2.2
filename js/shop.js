@@ -49,14 +49,13 @@ function calculateTotal() {
 }
 
 function applyPromotionsCart(product) {
-    switch (product.id){
-        case 1: 
-            return (product.quantity >= 3) ? product.price * product.quantity * 0.8 : product.price * product.quantity;
-        case 3: 
-            return (product.quantity >= 10) ? product.price * product.quantity * 0.7 : product.price * product.quantity;
-        default:
-            return product.price * product.quantity;
+
+    if (product.offer){
+        if (product.quantity >= product.offer.number) {
+            return product.price * product.quantity * (1 - product.offer.percent / 100);
+        }
     }
+    return product.price * product.quantity;
 }
 
 function printCart() {

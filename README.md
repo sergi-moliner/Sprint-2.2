@@ -62,7 +62,3 @@ User authentication and account management features.
 Enhanced user interface and experience.
 
 <br>
-
-## Credits
-
-This project is developed as part of a coursework assignment at IT Academy Barcelona.
